@@ -1,0 +1,25 @@
+services:
+  db:
+    image: postgres:alpine
+    environment:
+      POSTGRES_DB: locadora
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - .docker/data:/var/lib/postgresql/data
+  # api:
+  #   build: .
+  #   command: python manage.py runserver
+  #   volumes:
+  #     - .:/app
+  #   ports:
+  #     - "8000:8000"
+  #   depends_on:
+  #     - db
+  #   environment:
+  #     DB_HOST: db
+  #     DB_NAME: locadora
+  #     DB_USER: postgres
+  #     DB_PASSWORD: postgres
